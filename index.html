@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Angle Atlas — every load-bearing angle in the program, on one dial</title>
+<meta name="description" content="Fourteen angles that carry the Information Manifold Model's Riemann program — the halving dial 90°/2^Ω(n), the 45° of the primes, the 3-4-5 angle, the balance angle of a zero, the Bergen Disc rim — on one dial. Tap a ray to read it. Three red rings mark where an angle is the Riemann Hypothesis itself: verified for 100,000 zeros, proven for none. Every value recomputed in your browser and checked.">
+<meta property="og:title" content="The Angle Atlas — the dial">
+<meta property="og:description" content="Every load-bearing angle in the program on one dial. Instruments, not proofs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0e14; --panel:#111725; --panel-2:#0e1420; --line:#1e293b;
+    --text:#e6edf3; --dim:#9fb0c3; --faint:#6b7a8c; --accent:#7dd3fc; --gold:#e8c47a;
+    --T:#5b9bea; --D:#3fbfae; --M:#b58cf5; --P:#f7a03a; --K:#8d99a6; --R:#ff5c5c;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.55}
+  a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+  .wrap{max-width:1060px;margin:0 auto;padding:28px 16px 64px}
+  .eyebrow{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+  h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2rem,6vw,3.2rem);margin:0 0 8px;letter-spacing:.01em;line-height:1.1}
+  h2{font-family:'Fraunces',serif;font-weight:600;font-size:1.35rem;margin:0 0 12px}
+  h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.2rem;margin:6px 0 8px}
+  .sub{color:var(--dim);font-size:clamp(.98rem,2.4vw,1.06rem);max-width:74ch;margin:0 0 8px}
+  .creed{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--faint);margin:0}
+  .creed b{color:var(--dim);font-weight:500}
+  .stage{display:flex;flex-wrap:wrap;gap:14px;margin-top:22px;align-items:stretch}
+  .dialbox{flex:1 1 560px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:10px 10px 6px}
+  svg#dial{width:100%;height:auto;display:block;touch-action:manipulation}
+  .controls{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:6px 6px 4px;font-family:'IBM Plex Mono',monospace;font-size:.8rem;color:var(--dim)}
+  .controls button{background:var(--panel-2);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font:inherit;cursor:pointer;min-width:44px;min-height:44px}
+  .controls button:hover{border-color:var(--accent)}
+  .panel{flex:1 1 300px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;min-height:300px;display:flex;flex-direction:column;gap:8px}
+  .panel .head{display:flex;align-items:center;gap:12px}
+  .badge{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;color:#fff;font-weight:600;font-family:'IBM Plex Mono',monospace;font-size:.95rem;flex:0 0 auto}
+  .angle{font-family:'IBM Plex Mono',monospace;font-size:1.05rem;color:var(--gold)}
+  .panel p{margin:0;color:var(--text);font-size:.95rem}
+  .chip{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;padding:4px 9px;border-radius:999px;border:1px solid var(--line);color:var(--dim);margin-right:6px}
+  .rh{border-left:3px solid var(--R);padding:8px 12px;background:rgba(255,92,92,.08);border-radius:0 10px 10px 0;color:var(--text);font-size:.92rem}
+  .rh b{color:var(--R)}
+  .src{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--faint);margin-top:auto}
+  section{margin-top:30px}
+  .legend table{width:100%;border-collapse:collapse;font-size:.92rem}
+  .legend td{padding:10px 8px;border-top:1px solid var(--line);vertical-align:top}
+  .legend tr{cursor:pointer} .legend tr:hover td{background:var(--panel-2)} .legend tr.active td{background:#14203a}
+  .legend td.n{width:44px} .legend td.a{width:150px;font-family:'IBM Plex Mono',monospace;color:var(--gold);white-space:nowrap}
+  .legend td.g{width:170px;font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase}
+  .legend .name{font-weight:600}
+  .cardp{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;color:var(--dim);font-size:.95rem}
+  .cardp p{margin:0 0 10px} .cardp p:last-child{margin:0}
+  .cardp b{color:var(--text)}
+  .rings{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+  .ring{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--R);border-radius:12px;padding:14px 16px;font-size:.93rem;color:var(--dim)}
+  .ring b{color:var(--text)} .ring .big{font-family:'IBM Plex Mono',monospace;color:var(--R);font-size:1.2rem}
+  .receipts table{width:100%;border-collapse:collapse;font-family:'IBM Plex Mono',monospace;font-size:.78rem}
+  .receipts td,.receipts th{padding:7px 8px;border-top:1px solid var(--line);text-align:left;vertical-align:top}
+  .receipts th{color:var(--faint);font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:.68rem}
+  .pass{color:#6fdc9a} .fail{color:var(--R)}
+  #selfcheck{font-family:'IBM Plex Mono',monospace;font-size:.85rem;margin-top:10px}
+  .sources ul{margin:0;padding-left:18px;color:var(--dim);font-size:.9rem} .sources li{margin:4px 0}
+  footer{margin-top:40px;color:var(--faint);font-size:.85rem;border-top:1px solid var(--line);padding-top:14px;line-height:1.6}
+  .lg{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:baseline}
+  .key{font-size:.85rem;color:var(--dim);margin:8px 0 0}
+  .key span{margin-right:14px;white-space:nowrap}
+  /* svg */
+  .item line.vis{stroke:var(--c);stroke-linecap:round}
+  .item line.hit{stroke:transparent;stroke-width:22;cursor:pointer}
+  .item path.wedge{fill:var(--c);fill-opacity:.35;stroke:var(--c);stroke-width:.6;cursor:pointer}
+  .item path.bracket{fill:none;stroke:var(--c);stroke-width:1.2}
+  .item .marker circle{fill:var(--c);stroke:#0b0e14;stroke-width:1.2;cursor:pointer}
+  .item .marker text{fill:#fff;font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:9px;text-anchor:middle;dominant-baseline:central;pointer-events:none}
+  .item.active line.vis{stroke-width:3.2;filter:drop-shadow(0 0 3px var(--c))}
+  .item.active .marker circle{stroke:#fff;stroke-width:1.6;filter:drop-shadow(0 0 4px var(--c))}
+  .item.active path.wedge{fill-opacity:.65}
+  .T{--c:var(--T)} .D{--c:var(--D)} .M{--c:var(--M)} .P{--c:var(--P)} .K{--c:var(--K)}
+  .rim{fill:none;stroke:#3a475c;stroke-width:1.4}
+  .tick{stroke:#4c5a70;stroke-width:.9}
+  .tlabel{fill:#6b7a8c;font-family:'IBM Plex Mono',monospace;font-size:7px;text-anchor:middle;dominant-baseline:central}
+  .dlabel{fill:var(--text);font-family:'IBM Plex Mono',monospace;font-size:8px;text-anchor:middle;dominant-baseline:central;pointer-events:none}
+  .dlabel.bold{font-weight:600;font-size:9px}
+  .dlabel.D{fill:var(--D)} .dlabel.K{fill:var(--K)}
+  .ringc{fill:none;stroke:var(--R);stroke-width:2.2;cursor:pointer}
+  .ringc:hover{stroke-width:3}
+  .center{fill:#e6edf3}
+</style>
+</head>
+<body><div class="wrap">
+
+<header>
+  <div class="eyebrow">Room VII · The Legend</div>
+  <h1>The Angle Atlas</h1>
+  <p class="sub">Every load-bearing angle in the Information Manifold Model's Riemann program, on one dial. The halving dial <b>90°/2^Ω(n)</b> where the primes read 45°; the 3-4-5 angle; the balance angle of a zero; the rim of the Bergen Disc; the right angle that 2 + 2 = 4 turns out to be. <b>Tap a ray to read it.</b></p>
+  <p class="creed"><b>Instruments, not proofs.</b> Three red rings mark where an angle <em>is</em> the Riemann Hypothesis — verified for 100,000 zeros, proven for none. Every number on this page is recomputed in your browser and checked below.</p>
+</header>
+
+<section class="stage" aria-label="The dial">
+  <div class="dialbox">
+    <svg id="dial" viewBox="-132 -130 264 148" role="img" aria-label="A half dial with fourteen labeled rays from 0 to 180 degrees"></svg>
+    <div class="controls">
+      <button id="prev" aria-label="previous ray">‹ previous</button>
+      <span id="pos">7 / 14</span>
+      <button id="next" aria-label="next ray">next ›</button>
+    </div>
+    <p class="key">
+      <span><i class="lg" style="background:var(--T)"></i>theorem</span>
+      <span><i class="lg" style="background:var(--D)"></i>construction / definition</span>
+      <span><i class="lg" style="background:var(--M)"></i>measured</span>
+      <span><i class="lg" style="background:var(--P)"></i>planted exhibit</span>
+      <span><i class="lg" style="background:var(--K)"></i>killed</span>
+      <span><i class="lg" style="background:none;border:2px solid var(--R);width:8px;height:8px"></i>red ring: the angle is the hypothesis here</span>
+    </p>
+  </div>
+  <aside class="panel" id="panel" aria-live="polite"></aside>
+</section>
+
+<section class="legend">
+  <h2>The fourteen rays</h2>
+  <table id="legend"><tbody></tbody></table>
+</section>
+
+<section>
+  <h2>The three red rings</h2>
+  <div class="rings">
+    <div class="ring"><div class="big">0°</div><b>The Weil leg.</b> A zero's contribution to the Weil form has angle 2a²δγ, where δ = β − ½. It is exactly 0° when the zero is on the line. <b>0° at every zero ⟺ RH.</b></div>
+    <div class="ring"><div class="big">45°</div><b>The balance angle.</b> arctan(β/(1 − β)). Mirror partners always sum to 90° — that part is free. Both equal to 45° is the claim. <b>45° at every zero ⟺ RH.</b></div>
+    <div class="ring"><div class="big">90°</div><b>The bearing.</b> Seen from ½ on the real axis, a zero's direction is 90° exactly when it sits on the line. <b>90° at every zero ⟺ RH.</b></div>
+  </div>
+  <div class="cardp" style="margin-top:12px"><p>Each ring is the same sentence — <b>β = ½</b> — in a different costume. Each holds for every zero ever computed (the 100,000 tabulated here; 12.36 trillion in Platt–Trudgian 2021) and is proven for none. Everything else on the dial is a theorem, a definition, a measurement, or a coincidence that was killed and kept on display.</p></div>
+</section>
+
+<section>
+  <h2>The fence — the Davenport–Heilbronn test</h2>
+  <div class="cardp">
+    <p>Every ray on this dial is one of three kinds. <b>Free:</b> true for any function with the mirror and the strip — the two mirrors, the complementary balance angles, the 180° identity, the prime dials. <b>Equivalent:</b> the Riemann Hypothesis rewritten — the three red rings. <b>Measured:</b> a finite window — 100,000 zeros at 45.0000°, which can refute and never prove.</p>
+    <p>The test for any argument built from angles like these: the <b>Davenport–Heilbronn function</b> (1936) has the same functional equation, the same two mirrors and the same complementary balance angles — and its “Riemann Hypothesis” is <b>false</b>. It has zeros off the line, some even outside the critical strip. An argument that goes through unchanged for that function proves a falsehood. What it lacks, and what no ray here contains, is the Euler product over <em>all</em> primes.</p>
+    <p><b>Nothing on this page bears on the truth of the Riemann Hypothesis.</b> The dial is a map of where the hypothesis lives — not a lever.</p>
+  </div>
+</section>
+
+<section class="receipts">
+  <h2>Receipts</h2>
+  <p class="sub">Every angle above is recomputed here, in your browser, from its defining formula, and compared with the values of the committed Python twin (<code>angle_dial.py</code>, which asserts the same numbers before it draws).</p>
+  <table><thead><tr><th>#</th><th>quantity</th><th>formula</th><th>computed</th><th>recorded</th><th></th></tr></thead><tbody id="rtab"></tbody></table>
+  <div id="selfcheck"></div>
+</section>
+
+<section class="sources">
+  <h2>Sources</h2>
+  <ul>
+    <li>Travis Bergen, <i>A Smith Chart for the Riemann Hypothesis</i> (IMM Paper 19), <a href="https://doi.org/10.5281/zenodo.21400881" target="_blank" rel="noopener noreferrer">doi:10.5281/zenodo.21400881</a> — the Li map z = 1 − 1/s as the chart's lens.</li>
+    <li>The companion instruments: <a href="https://travisbergen2.github.io/rh-smith-chart/" target="_blank" rel="noopener noreferrer">The RH Smith Chart</a> (Room I) and <a href="https://fractalyouniverse.org/Bergen_disc/">The Bergen Disc</a> (Room VI) — the rim angles and the vanishing point live there.</li>
+    <li>A. M. Odlyzko, <a href="https://www-users.cse.umn.edu/~odlyzko/zeta_tables/" target="_blank" rel="noopener noreferrer">tables of zeros of the Riemann zeta function</a> — the first 100,000 zeros (γ₁ = 14.134725…, γ₁₀₀₀₀₀ = 74920.827…).</li>
+    <li>E. Hecke, <i>Eine neue Art von Zetafunktionen und ihre Beziehungen zur Verteilung der Primzahlen</i>, Math. Z. 1 (1918) 357–376 and 6 (1920) 11–51 — the Gaussian-prime angles equidistribute.</li>
+    <li>H. Davenport and H. Heilbronn, <i>On the zeros of certain Dirichlet series</i> I, II, J. London Math. Soc. s1-11 (1936) 181–185, 307–312 — the fence.</li>
+    <li>D. Platt and T. Trudgian, <i>The Riemann hypothesis is true up to 3·10¹²</i>, Bull. London Math. Soc. 53 (2021) 792–797.</li>
+    <li>Li's criterion (X.-J. Li 1997; E. Bombieri and J. Lagarias 1999) — the map z = 1 − 1/s and the coefficients λₙ.</li>
+    <li>The polar prime plot that started the halving dial: Grant Sanderson (3Blue1Brown), 2019.</li>
+  </ul>
+</section>
+
+<footer>
+  <span class="lg" style="background:var(--gold)"></span>Fractal Youniverse · <a href="https://fractalyouniverse.org/">all instruments</a> · Travis Bergen · built 2026-09-10 with the Riemann agent · source and Python twin: <a href="https://github.com/travisbergen2/Angle_atlas" target="_blank" rel="noopener noreferrer">github.com/travisbergen2/Angle_atlas</a><br>
+  No tracking, no analytics; the only external request is the font stylesheet. Instruments, not proofs.
+</footer>
+
+</div>
+<script>
+(function(){
+  // ---------- the numbers, computed here from their formulas ----------
+  var G1 = 14.134725141734693, G100K = 74920.827498994;   // Odlyzko zeros1
+  var deg = function(r){ return r*180/Math.PI; };
+  var rim = function(g){ return deg(Math.atan2(g, g*g-0.25)); };
+  var A = {};
+  A.rimSpan   = rim(G1) - rim(G100K);
+  A.ladder    = [45, 22.5, 11.25, 5.625];
+  A.n45       = deg(Math.atan(11/45));
+  A.atanHalf  = deg(Math.atan(0.5));
+  A.bal35     = deg(Math.atan(0.35/0.65));  A.bal35c = 90 - A.bal35;
+  A.t345      = deg(Math.atan(4/3));        A.acos35 = deg(Math.acos(3/5));
+  A.drift     = [2,3,5,7,11].map(function(p){ return deg(Math.atan((p+1)/p)); });
+  A.argRho1   = deg(Math.atan2(G1, 0.5));   A.argRho100k = deg(Math.atan2(G100K, 0.5));
+  A.obtuse    = deg(Math.acos((4+9-16)/(2*2*3)));
+  A.phantom   = deg(Math.atan2(30, 0.2));
+  A.perp      = 1*1 + 1*(-1);
+  var f2 = function(x){ return x.toFixed(2)+'°'; }, f1 = function(x){ return x.toFixed(1)+'°'; };
+
+  // ---------- the fourteen rays ----------
+  var RAYS = [
+    {n:1, cls:'T', kind:'ray', a:0, r:100, w:2.6, ring:true, lab:['0°',122.5,true], angle:'0°',
+     name:'The real-axis mirror',
+     what:'Complex conjugation s ↦ s̄ fixes the real axis. Inert primes (p ≡ 3 mod 4) sit on this axis as Gaussian integers. And the Weil leg of a zero — its contribution to the Weil form — has angle 2a²δγ: exactly 0° when the zero is on the line.',
+     grade:'theorem', rh:'Weil-leg angle 0° at every zero ⟺ RH.', src:'RH angle census, 2026-09-04 (rh_angle_census.py)'},
+    {n:2, cls:'M', kind:'wedge', a:[0, A.rimSpan], r:50, mk:[2,60], angle:f2(A.rimSpan),
+     name:'The rim the zeros occupy',
+     what:'On the Bergen Disc (the Li map z = 1 − 1/s) a zero at height γ sits at rim angle atan2(γ, γ² − ¼) ≈ 1/γ from the vanishing point. All 100,000 tabulated zeros fit inside '+f2(A.rimSpan)+' of rim per side; zero #100000 is 0.0053 px from the vanishing point at radius 400 px. The same compression blinds the Disc to a violation: an off-line zero at β = ½ + δ sits ≈ δ/γ² off the rim — sub-pixel for γ > 6.3.',
+     grade:'measured', src:'collapse_receipts.py on Odlyzko zeros1, 2026-09-04'},
+    {n:3, cls:'D', kind:'multi', a:[22.5,11.25,5.625], r:[82,72,62], mk:[22.5,90.5], small:[[11.25,81.5,'11.25°'],[5.625,72,'5.625°']], angle:'22.5° · 11.25° · 5.625°',
+     name:'The halving dial',
+     what:'θ(n) = 90°/2^Ω(n), with Ω the number of prime factors counted with repetition: 1 at 90°, primes at 45°, Ω = 2 at 22.5°, Ω = 3 at 11.25° (27 lives here), Ω = 4 at 5.625°. Each rung is one square root — the angles are the arguments of i, ζ₈, ζ₁₆, ζ₃₂, ζ₆₄. The honest exponent-lattice angles arctan(1/k) agree through k = 1 and break at k = 2 ('+f2(A.atanHalf)+' vs 22.5°): the halving rule is the geometry of 2, not of the primes.',
+     grade:'definition', src:'Warren Note 2026-09-04 (prime_angles.py); Collatz on the Dial 2026-09-09'},
+    {n:4, cls:'K', kind:'ray', a:A.n45, r:100, w:1.6, dash:true, lab:['13.7°',122.5,false], angle:f2(A.n45),
+     name:'The number 45',
+     what:'On the sopfr dial (sopfr = the sum of a number’s prime factors, with repetition) the number 45 = 3²·5 reads arctan(11/45) = '+A.n45.toFixed(3)+'°. It looked like 137 — the fine-structure constant’s 1/α ≈ 137.036 — until the third digit: 1/(10α) = 13.704. Killed, and kept on display.',
+     grade:'killed', src:'2026-08-31'},
+    {n:5, cls:'T', kind:'ray', a:A.atanHalf, r:100, w:2.2, lab:['26.57°',123.5,false], angle:f2(A.atanHalf),
+     name:'arctan ½',
+     what:'The argument of 2 + i, the Gaussian factor of 5. Also the slope of the composite envelope on the sopfr dial: every composite n obeys sopfr(n) ≤ n/2 + 2, with equality exactly on {4, 8} ∪ {2p}. The same number twice for unrelated reasons — recorded as a coincidence, not a connection.',
+     grade:'theorem', src:'three-mirrors census, 2026-09-01 (census.py, 234 assertions)'},
+    {n:6, cls:'P', kind:'pair', a:[A.bal35, A.bal35c], r:62, mk:[A.bal35c,70], angle:f1(A.bal35)+' / '+f1(A.bal35c),
+     name:'A planted pair',
+     what:'The balance angle of a zero ρ = β + iγ is arctan(β/(1 − β)). Mirror partners β and 1 − β always have complementary balance angles — their sum is 90° for every β, a free gift of the functional equation. A planted pair at β = 0.35 reads '+f2(A.bal35)+' and '+f2(A.bal35c)+': complementary, not equal. Equal — both 45° — is what the Riemann Hypothesis asserts.',
+     grade:'planted exhibit', src:'balance-angle theorem, 2026-08-29 (verify_balance.py)'},
+    {n:7, cls:'T', kind:'ray', a:45, r:100, w:3, ring:true, lab:['45°',123.5,true], angle:'45°',
+     name:'Primes, and the line',
+     what:'Primes read 45° on both dials: on the halving dial by definition, on the sopfr dial by theorem — arctan(sopfr(n)/n) = 45° if and only if n is prime or n = 4 (proven in three lines; verified to one million: 78,499 = π(10⁶) + 1). The Gaussian prime 1 + i sits at 45°. And a zero’s balance angle is 45° if and only if β = ½.',
+     grade:'theorem', rh:'Balance angle 45° at every zero ⟺ RH.', src:'sopfr criterion 2026-08-29; census 2026-09-01'},
+    {n:8, cls:'T', kind:'ray', a:A.t345, r:90, w:2.2, mk:[A.t345,98.5], lab:['53.13°',107.5,false], angle:f2(A.t345),
+     name:'The 3-4-5 angle',
+     what:'arctan(4/3): the argument of 3 + 4i = (2 + i)². Squaring 5’s Gaussian factor mints the first right triangle, 3-4-5, with 5 as the first prime hypotenuse. The same angle separates the two factors 2 + i and 2 − i (arccos 3/5 = '+f2(A.acos35)+'): split primes’ factors are not perpendicular — only the ramified pair 1 ± i is.',
+     grade:'theorem', src:'keepsake coda §5, 2026-08-28; 2026-09-01'},
+    {n:9, cls:'T', kind:'bracket', a:A.drift, r:116.5, mk:[(A.drift[0]+A.drift[4])/2,124.5], angle:f1(A.drift[0])+' → '+f1(A.drift[4]),
+     name:'The drifting legs',
+     what:'For legs (p, p + 1) the acute angle is arctan((p + 1)/p): '+A.drift.map(function(x){return x.toFixed(2)+'°';}).join(', ')+' for p = 2, 3, 5, 7, 11 — sliding toward 45° and never constant. The triangle family is not similar, so an angle-angle-angle argument cannot run on it; p = 3 gives the one integer closure, 3-4-5.',
+     grade:'theorem', src:'AAA repair, 2026-08-29 (verify_aaa.py)'},
+    {n:10, cls:'M', kind:'wedge', a:[A.argRho1, 90], r:80, mk:[84,55], angle:f2(A.argRho1)+' → '+A.argRho100k.toFixed(4)+'°',
+     name:'The clock phases',
+     what:'arg ρ for the zeros themselves: '+f2(A.argRho1)+' at γ₁ = 14.13, '+A.argRho100k.toFixed(4)+'° at zero #100000. In the explicit formula each zero is a wave in log x turning at angular speed γ; this is its phase offset. The Riemann Hypothesis does not fix these — they are the clocks it leaves free.',
+     grade:'measured', src:'RH angle census, 2026-09-04'},
+    {n:11, cls:'D', kind:'ray', a:90, r:100, w:3, ring:true, lab:['90°',123.5,true], angle:'90°',
+     name:'The right angle',
+     what:'The critical-line mirror s ↦ 1 − s. The ramified pair 1 ± i is perpendicular — (1,1)·(1,−1) = 0, legs √2 and √2, hypotenuse 2 — so 2 + 2 = 4 is the Pythagorean theorem of 2’s own factorization. Multiplication by i is a quarter-turn. Paper 4’s Born exponent 2 comes from the Pythagorean identity for orthogonal states. Seen from ½, a zero’s bearing is 90° exactly when it is on the line (a phantom at 0.7 + 30i reads '+A.phantom.toFixed(3)+'°).',
+     grade:'theorem / construction', rh:'Bearing from ½ = 90° at every zero ⟺ RH.', src:'keepsake coda §5–7, 2026-08-28; census 2026-09-04'},
+    {n:12, cls:'K', kind:'ray', a:A.obtuse, r:62, w:1.6, dash:true, mk:[A.obtuse,70], lab:['104.5°',82,false], angle:f1(A.obtuse),
+     name:'(2, 3, 4)',
+     what:'The smallest scalene integer triangle is obtuse: its big corner is arccos(−¼) = '+f2(A.obtuse)+'. Not a right triangle. The live object that morning was the pair (4, 5) — the trace and norm of 5’s Gaussian split: (2 + i) + (2 − i) = 4 and (2 + i)(2 − i) = 5.',
+     grade:'killed', src:'2026-08-31'},
+    {n:13, cls:'K', kind:'tick', a:135, r:100, mk:[135,113], lab:['135°',125,false], angle:'0°, 45°, 90°, 135°, 180°',
+     name:'Sector windows',
+     what:'The angular race census scanned the Gaussian-prime angles in sectors centered at 0°, 45°, 90°, 135° and 180° with half-widths 22.5°, 45°, 90° and 180°. Only the axis-hugging window S(0°, ±22.5°) is wall-free: no positive-definite window localizes off-axis, so the mean term is the whole positivity budget away from the axis.',
+     grade:'measured', src:'E-RACE-A, 2026-08-26 (erace_census.py)'},
+    {n:14, cls:'T', kind:'ray', a:180, r:100, w:2.4, lab:['180°',122.5,true], angle:'180°',
+     name:'The pole',
+     what:'On the critical line the pole factor’s angle is 180°, the Gamma factor contributes θ(t), and ζ’s own angle is −θ(t) + πS(t); the three sum to 0 mod 180° to one part in 10¹¹ at every tested height — which is why the Hardy Z-function is real.',
+     grade:'theorem', src:'RH angle census, 2026-09-04'}
+  ];
+
+  // ---------- svg helpers ----------
+  var NS='http://www.w3.org/2000/svg', svg=document.getElementById('dial');
+  function el(tag, attrs, parent){ var e=document.createElementNS(NS,tag); for(var k in attrs){ e.setAttribute(k, attrs[k]); } (parent||svg).appendChild(e); return e; }
+  function pol(a, r){ var t=a*Math.PI/180; return {x: r*Math.cos(t), y: -r*Math.sin(t)}; }
+  function P(a,r){ var p=pol(a,r); return p.x.toFixed(3)+' '+p.y.toFixed(3); }
+  function line(g, a, r, cls, w, dash){ var p=pol(a,r); var l=el('line',{x1:0,y1:0,x2:p.x,y2:p.y,'class':cls,'stroke-width':w},g); if(dash){ l.setAttribute('stroke-dasharray','4 3'); } return l; }
+
+  // rim, baseline, ticks
+  el('path',{d:'M -100 0 A 100 100 0 0 1 100 0','class':'rim'});
+  el('line',{x1:-100,y1:0,x2:100,y2:0,'class':'rim'});
+  for(var t=0;t<=180;t+=15){ var p0=pol(t,100), p1=pol(t, t%45?103.5:105.5); el('line',{x1:p0.x,y1:p0.y,x2:p1.x,y2:p1.y,'class':'tick'}); if(t===30||t===60||t===120||t===150){ var q=pol(t,110); var tx=el('text',{x:q.x,y:q.y,'class':'tlabel'}); tx.textContent=t+'°'; } }
+
+  RAYS.forEach(function(it){
+    var g=el('g',{'class':'item '+it.cls,'data-n':it.n,role:'button',tabindex:'0','aria-label':'ray '+it.n+', '+it.angle+', '+it.name});
+    var mk=it.mk;
+    if(it.kind==='ray'){ line(g,it.a,it.r,'vis',it.w,it.dash); line(g,it.a,it.r,'hit',22); if(!mk) mk=[it.a,111]; }
+    else if(it.kind==='multi'){ it.a.forEach(function(a,i){ line(g,a,it.r[i],'vis',2.0); line(g,a,it.r[i],'hit',18); }); }
+    else if(it.kind==='pair'){ it.a.forEach(function(a){ line(g,a,it.r,'vis',1.8,true); line(g,a,it.r,'hit',18); }); }
+    else if(it.kind==='wedge'){ el('path',{d:'M 0 0 L '+P(it.a[0],it.r)+' A '+it.r+' '+it.r+' 0 0 0 '+P(it.a[1],it.r)+' Z','class':'wedge'},g); }
+    else if(it.kind==='bracket'){ it.a.forEach(function(a){ var p0=pol(a,96.5),p1=pol(a,100); el('line',{x1:p0.x,y1:p0.y,x2:p1.x,y2:p1.y,'class':'vis','stroke-width':1.2},g); }); var lo=Math.min.apply(null,it.a), hi=Math.max.apply(null,it.a); el('path',{d:'M '+P(lo,it.r)+' A '+it.r+' '+it.r+' 0 0 0 '+P(hi,it.r),'class':'bracket'},g); }
+    else if(it.kind==='tick'){ var q0=pol(it.a,100),q1=pol(it.a,106); el('line',{x1:q0.x,y1:q0.y,x2:q1.x,y2:q1.y,'class':'vis','stroke-width':1.6},g); }
+    if(it.small){ it.small.forEach(function(s){ var q=pol(s[0],s[1]); var tx=el('text',{x:q.x,y:q.y,'class':'dlabel '+it.cls,style:'font-size:6.5px'},g); tx.textContent=s[2]; }); }
+    var m=pol(mk[0],mk[1]); var mg=el('g',{'class':'marker'},g); el('circle',{cx:m.x,cy:m.y,r:10},mg); var mt=el('text',{x:m.x,y:m.y},mg); mt.textContent=it.n;
+    if(it.lab){ var lq=pol(it.kind==='ray'||it.kind==='tick'?it.a:mk[0], it.lab[1]); var lt=el('text',{x:lq.x,y:lq.y,'class':'dlabel'+(it.lab[2]?' bold':'')+(it.cls==='K'?' K':'')},g); lt.textContent=it.lab[0]; }
+    g.addEventListener('click', function(){ select(it.n); });
+    g.addEventListener('keydown', function(ev){ if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); select(it.n); } });
+  });
+  // red rings on 0°, 45°, 90°
+  RAYS.filter(function(it){return it.ring;}).forEach(function(it){ var p=pol(it.a,100); var c=el('circle',{cx:p.x,cy:p.y,r:5.8,'class':'ringc'}); c.addEventListener('click',function(){ select(it.n); }); });
+  el('circle',{cx:0,cy:0,r:2.2,'class':'center'});
+
+  // ---------- legend ----------
+  function firstSentence(t){ var i=t.indexOf('. '); return i<0 ? t : t.slice(0, i+1); }
+  var tb=document.querySelector('#legend tbody');
+  RAYS.forEach(function(it){
+    var tr=document.createElement('tr'); tr.setAttribute('data-n',it.n);
+    tr.innerHTML='<td class="n"><span class="badge" style="background:var(--'+it.cls+');width:26px;height:26px;font-size:.8rem">'+it.n+'</span></td><td class="a">'+it.angle+'</td><td><span class="name">'+it.name+'.</span> '+firstSentence(it.what)+'</td><td class="g" style="color:var(--'+it.cls+')">'+it.grade+(it.rh?' · RH here':'')+'</td>';
+    tr.addEventListener('click',function(){ select(it.n); document.getElementById('panel').scrollIntoView({behavior:'smooth',block:'nearest'}); });
+    tb.appendChild(tr);
+  });
+
+  // ---------- selection ----------
+  var cur=7;
+  function select(n){
+    cur=n; var it=RAYS[n-1];
+    document.querySelectorAll('#dial .item').forEach(function(g){ g.classList.toggle('active', +g.getAttribute('data-n')===n); });
+    document.querySelectorAll('#legend tr').forEach(function(tr){ tr.classList.toggle('active', +tr.getAttribute('data-n')===n); });
+    document.getElementById('pos').textContent=n+' / 14';
+    var h='<div class="head"><span class="badge" style="background:var(--'+it.cls+')">'+it.n+'</span><span class="angle">'+it.angle+'</span></div>'+
+      '<h3>'+it.name+'</h3><p>'+it.what+'</p>'+
+      '<div><span class="chip" style="color:var(--'+it.cls+');border-color:var(--'+it.cls+')">'+it.grade+'</span></div>'+
+      (it.rh?'<div class="rh"><b>Where RH lives:</b> '+it.rh+' Verified for 100,000 zeros, proven for none.</div>':'')+
+      '<div class="src">source · '+it.src+'</div>';
+    document.getElementById('panel').innerHTML=h;
+  }
+  document.getElementById('prev').addEventListener('click',function(){ select(cur===1?14:cur-1); });
+  document.getElementById('next').addEventListener('click',function(){ select(cur===14?1:cur+1); });
+  document.addEventListener('keydown',function(ev){ if(ev.target.tagName==='INPUT') return; if(ev.key==='ArrowRight'){ select(cur===14?1:cur+1); } if(ev.key==='ArrowLeft'){ select(cur===1?14:cur-1); } });
+  select(7);
+
+  // ---------- receipts: computed here vs recorded by the Python twin ----------
+  var CHECKS=[
+    ['2','Disc rim span of 100,000 zeros','atan2(γ₁, γ₁²−¼) − atan2(γ₁₀₀₀₀₀, …)',A.rimSpan,4.0511],
+    ['4','the number 45 on the sopfr dial','arctan(11/45)',A.n45,13.7363],
+    ['5','arg(2+i)','arctan(½)',A.atanHalf,26.5651],
+    ['6','balance angle at β = 0.35','arctan(0.35/0.65)',A.bal35,28.3008],
+    ['6','its mirror partner','90° − above',A.bal35c,61.6992],
+    ['8','the 3-4-5 angle','arctan(4/3)',A.t345,53.1301],
+    ['8','angle between 2+i and 2−i','arccos(3/5)',A.acos35,53.1301],
+    ['9','drift, p = 2','arctan(3/2)',A.drift[0],56.3099],
+    ['9','drift, p = 5','arctan(6/5)',A.drift[2],50.1944],
+    ['9','drift, p = 11','arctan(12/11)',A.drift[4],47.4896],
+    ['10','arg ρ₁','atan2(γ₁, ½)',A.argRho1,87.9741],
+    ['10','arg ρ₁₀₀₀₀₀','atan2(γ₁₀₀₀₀₀, ½)',A.argRho100k,89.9996],
+    ['11','bearing of the phantom 0.7+30i from ½','atan2(30, 0.2)',A.phantom,89.618],
+    ['11','ramified pair perpendicular','(1,1)·(1,−1)',A.perp,0],
+    ['12','(2,3,4) largest angle','arccos((4+9−16)/12)',A.obtuse,104.4775]
+  ];
+  var rt=document.getElementById('rtab'), pass=0;
+  CHECKS.forEach(function(c){ var ok=Math.abs(c[3]-c[4])<5e-4; if(ok) pass++; var tr=document.createElement('tr'); tr.innerHTML='<td>'+c[0]+'</td><td>'+c[1]+'</td><td>'+c[2]+'</td><td>'+(typeof c[3]==='number'?c[3].toFixed(4):c[3])+'</td><td>'+c[4]+'</td><td class="'+(ok?'pass':'fail')+'">'+(ok?'✓':'✗')+'</td>'; rt.appendChild(tr); });
+  document.getElementById('selfcheck').innerHTML='<span class="'+(pass===CHECKS.length?'pass':'fail')+'">'+pass+' / '+CHECKS.length+' recomputed values agree with the Python twin</span> · γ₁ = '+G1+' · γ₁₀₀₀₀₀ = '+G100K;
+  window.__angleAtlas={A:A,pass:pass,total:CHECKS.length};
+})();
+</script>
+</body>
+</html>
