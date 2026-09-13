@@ -1,0 +1,99 @@
+{
+ "A_mod4": {
+  "all_primes": {
+   "pi_res": 39175,
+   "pi_non": 39322,
+   "D_pi": -147,
+   "D_theta": -1816.6,
+   "D_psi": -835.8
+  },
+  "without_2357": {
+   "pi_res": 39174,
+   "pi_non": 39320,
+   "D_pi": -146,
+   "D_theta": -1815.2,
+   "D_psi": -846.8
+  },
+  "shift_in_D_pi": 1,
+  "sqrt_x_over_log_x": 72.4
+ },
+ "A_mod3": {
+  "all_primes": {
+   "pi_res": 39231,
+   "pi_non": 39266,
+   "D_pi": -35,
+   "D_theta": -267.4,
+   "D_psi": 715.0
+  },
+  "without_2357": {
+   "pi_res": 39230,
+   "pi_non": 39264,
+   "D_pi": -34,
+   "D_theta": -267.0,
+   "D_psi": 702.1
+  },
+  "shift_in_D_pi": 1,
+  "sqrt_x_over_log_x": 72.4
+ },
+ "B_cubic_mod7": {
+  "pi_A_cubes": 26153,
+  "pi_B": 26174,
+  "pi_C": 26170,
+  "S": 78497,
+  "legs_minus_mean": [
+   -12.66666666666788,
+   8.33333333333212,
+   4.333333333332121
+  ],
+  "abs_sum_chi": 19.313,
+  "parseval_lhs": 2053926585,
+  "parseval_rhs": 2053926585.0,
+  "parseval_holds": true,
+  "squares_mod7": [
+   1,
+   2,
+   4
+  ],
+  "note": "one square residue per coset -> no square bias between cubic legs; cubes p^3 land only in A (x^(1/3) effect)"
+ },
+ "B_vs_qubit_legs": {
+  "mod4_D_pi": -147,
+  "mod3_D_pi": -35,
+  "mod7_cubic_max_leg_gap": 21
+ },
+ "C_zeros": {
+  "L_chi3_first_zeros": [
+   "8.039737156",
+   "11.24920621",
+   "15.70461918",
+   "18.2619975"
+  ],
+  "L_chi3_first_zero_re": "0.5",
+  "regression_8_039737": true,
+  "L_cubic7_zeros_t_in_pm20": [
+   "-19.11388572",
+   "-18.04485754",
+   "-16.01372713",
+   "-13.8298679",
+   "-11.01044486",
+   "-7.927430898",
+   "-6.201230043",
+   "4.356401625",
+   "8.785554714",
+   "10.73611999",
+   "12.53254782",
+   "15.9374482",
+   "17.6160532"
+  ],
+  "L_cubic7_max_abs_re_minus_half": "3.29e-16",
+  "L_cubic7_n_zeros_found": 13,
+  "L_cubic7_n_expected_riemann_vonMangoldt": 13.4,
+  "offline_roots_found": {
+   "chi3": [],
+   "cubic7": [
+    "(8.1999516e-32 - 1.9124204e-31j)"
+   ]
+  },
+  "note": "L(s,chibar) zeros are the conjugates (t -> -t); Dedekind zeta_K (conductor 7 cubic field) = zeta * L(chi) * L(chibar)"
+ }
+}

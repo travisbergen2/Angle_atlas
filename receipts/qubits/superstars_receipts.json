@@ -1,0 +1,106 @@
+{
+ "E1": {
+  "shares_all": {
+   "ram": 0.5000005000005,
+   "split": 0.17589817589839613,
+   "inert": 0.3241013241015452
+  },
+  "ratio_inert_over_split_all": 1.8425507964832761,
+  "shares_p_ge_11": {
+   "ram": 0,
+   "split": 0.47788861180323433,
+   "inert": 0.5221113881958652
+  },
+  "ratio_inert_over_split_p_ge_11": 1.0925378326672475,
+  "theory_ratio_window_11_to_199": 1.1602414832092838,
+  "theory_share_3": 0.16666666666666666,
+  "theory_share_5": 0.06666666666666668,
+  "theory_share_7": 0.0380952380952381
+ },
+ "E2": {
+  "2": {
+   "measured": 0.99969,
+   "measured_without_2357": 1.0,
+   "ramanujan": 1.0,
+   "mu": -1
+  },
+  "3": {
+   "measured": 0.49978,
+   "measured_without_2357": 0.50001,
+   "ramanujan": 0.5,
+   "mu": -1
+  },
+  "4": {
+   "measured": 0.00413,
+   "measured_without_2357": 0.00398,
+   "ramanujan": 0.0,
+   "mu": 0
+  },
+  "5": {
+   "measured": 0.25383,
+   "measured_without_2357": 0.25376,
+   "ramanujan": 0.25,
+   "mu": -1
+  },
+  "6": {
+   "measured": 0.49963,
+   "measured_without_2357": 0.50001,
+   "ramanujan": 0.5,
+   "mu": 1
+  },
+  "7": {
+   "measured": 0.16655,
+   "measured_without_2357": 0.1666,
+   "ramanujan": 0.16667,
+   "mu": -1
+  },
+  "8": {
+   "measured": 0.00478,
+   "measured_without_2357": 0.00479,
+   "ramanujan": 0.0,
+   "mu": 0
+  },
+  "9": {
+   "measured": 0.00197,
+   "measured_without_2357": 0.00181,
+   "ramanujan": 0.0,
+   "mu": 0
+  },
+  "10": {
+   "measured": 0.24589,
+   "measured_without_2357": 0.24624,
+   "ramanujan": 0.25,
+   "mu": 1
+  },
+  "11": {
+   "measured": 0.09799,
+   "measured_without_2357": 0.09785,
+   "ramanujan": 0.1,
+   "mu": -1
+  },
+  "12": {
+   "measured": 0.0017,
+   "measured_without_2357": 0.00201,
+   "ramanujan": 0.0,
+   "mu": 0
+  }
+ },
+ "E3": {
+  "N": 65536,
+  "pi": 6542,
+  "pi_1mod4": 3257,
+  "pi_3mod4": 3284,
+  "diff": -27,
+  "abs_S_N_over_4": 27.01851217220593,
+  "abs_S_N_over_2": 6540.0,
+  "note": "S(1/4) = -1 + i(pi1 - pi3) up to sign convention"
+ },
+ "checks": {
+  "E1_ratio_all_in_1.9_2.3": false,
+  "E1_ratio_p_ge_11_in_1.0_1.2": true,
+  "E2_squarefree_peaks_match_mu_over_phi_within_0.02": true,
+  "E2_nonsquarefree_peaks_below_0.02": true,
+  "E2_deleting_2357_moves_peaks_less_than_4_over_pi": true,
+  "E3_S_N_over_4_equals_hypot(1, pi1-pi3)": true
+ }
+}

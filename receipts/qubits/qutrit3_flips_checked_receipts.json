@@ -1,0 +1,230 @@
+{
+ "tests": {
+  "mps_vs_dense_untruncated_fidelity": 1.0,
+  "two_squares_5": [
+   2,
+   1
+  ],
+  "trace_5": 4,
+  "norm_5": 5,
+  "tests_seconds": 0.01
+ },
+ "experiments": {
+  "Q1_ghz3": {
+   "cut_entropies_bits": [
+    1.584963,
+    1.584963,
+    1.584963,
+    1.584963,
+    1.584963
+   ],
+   "expected_bits": 1.584963,
+   "chi": 3,
+   "fidelity_vs_exact": 1.0000000000000004,
+   "max_bond": 3
+  },
+  "Q2_random3": {
+   "exact_cut_entropies_final": [
+    1.58,
+    3.087,
+    4.007,
+    3.075,
+    1.575
+   ],
+   "cap_bits_per_cut": [
+    1.585,
+    3.17,
+    4.755,
+    3.17,
+    1.585
+   ],
+   "by_chi": {
+    "3": {
+     "fidelity_by_depth": [
+      [
+       2,
+       0.732189
+      ],
+      [
+       4,
+       0.176162
+      ],
+      [
+       6,
+       0.037874
+      ],
+      [
+       8,
+       0.0177
+      ]
+     ],
+     "first_depth_below_0p999": 2,
+     "max_bond": 3
+    },
+    "9": {
+     "fidelity_by_depth": [
+      [
+       2,
+       1.0
+      ],
+      [
+       4,
+       0.89729
+      ],
+      [
+       6,
+       0.601905
+      ],
+      [
+       8,
+       0.396713
+      ]
+     ],
+     "first_depth_below_0p999": 4,
+     "max_bond": 9
+    },
+    "27": {
+     "fidelity_by_depth": [
+      [
+       2,
+       1.0
+      ],
+      [
+       4,
+       1.0
+      ],
+      [
+       6,
+       1.0
+      ],
+      [
+       8,
+       1.0
+      ]
+     ],
+     "first_depth_below_0p999": null,
+     "max_bond": 27
+    }
+   }
+  },
+  "F1_hecke": {
+   "submitted_mirrored": {
+    "bin_counts": [
+     2976,
+     2994,
+     3007,
+     3007,
+     2994,
+     2976
+    ],
+    "chi2": 0.324,
+    "dof_assumed": 5,
+    "p": 0.9972
+   },
+   "corrected_theta_only": {
+    "bin_counts": [
+     2976,
+     2994,
+     3007
+    ],
+    "chi2": 0.162,
+    "dof": 2,
+    "p": 0.9222,
+    "reject_at_0p01": false
+   },
+   "note": "mirrored statistic == 2 x theta-only statistic by construction: 0.324 vs 0.324"
+  },
+  "F2_zetaphase_vs_class": {
+   "table": [
+    [
+     3229,
+     3209
+    ],
+    [
+     2943,
+     2962
+    ],
+    [
+     2834,
+     2806
+    ]
+   ],
+   "chi2": 0.216,
+   "dof": 2,
+   "p": 0.8978,
+   "reject_at_0p01": false
+  },
+  "F3_zetaphase_vs_flipcount": {
+   "table": [
+    [
+     2660,
+     2706,
+     1072
+    ],
+    [
+     2459,
+     2455,
+     991
+    ],
+    [
+     2374,
+     2322,
+     944
+    ]
+   ],
+   "chi2": 1.007,
+   "dof": 4,
+   "p": 0.9088,
+   "reject_at_0p01": false
+  },
+  "F4_flip_alignment": {
+   "split": {
+    "plus": 5983,
+    "minus": 2994,
+    "expected_plus": 5984.7,
+    "p": 0.9702
+   },
+   "inert": {
+    "plus": 4517,
+    "minus": 4489,
+    "expected_plus": 4503.0,
+    "p": 0.768
+   }
+  },
+  "F5_composed_vs_mirror_mix": {
+   "raw_sector_hist": [
+    6438,
+    5905,
+    5640
+   ],
+   "composed_sector_hist": [
+    6054,
+    5905,
+    6024
+   ],
+   "flip_rate_odd": 0.4161,
+   "expected": [
+    6105.9,
+    5905.0,
+    5972.1
+   ],
+   "chi2": 0.894,
+   "p_submitted_ddof0": 0.6397,
+   "p_stated_dof1": 0.3445
+  },
+  "diag_sideA": {
+   "raw_sector_hist_all_primes": [
+    6438,
+    5906,
+    5640
+   ],
+   "uniform_p": 0.0,
+   "weyl_sum_over_pi": 0.0636,
+   "predicted_1_over_sqrt_1_plus_gamma2": 0.0706,
+   "sector_band_ratio_in_p": 1.1597
+  },
+  "n_split": 8977,
+  "n_inert": 9006
+ },
+ "seconds": 0.3
+}

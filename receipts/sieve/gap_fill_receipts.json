@@ -1,0 +1,199 @@
+{
+ "A_max_gpf_over_prev_prime": 0.7142857142857143,
+ "A_max_spf_needed_below_N": 997,
+ "A_spf_le_sqrt": true,
+ "A_max_gap_below_N": 114,
+ "A_max_gap_at": 492113,
+ "A_bertrand_max_ratio_next_over_prev": 1.6666666666666667,
+ "B_first_exclusive_kill_is_square_all_p_le_1000": true,
+ "B_examples": {
+  "2": 4,
+  "3": 9,
+  "5": 25,
+  "7": 49,
+  "11": 121,
+  "13": 169,
+  "997": 994009
+ },
+ "C_legendre_x10000": {
+  "value": 1205,
+  "pi(x)-pi(y)+1": 1205,
+  "agree": true,
+  "contributing_combinations": 1396,
+  "all_combinations_2^pi(y)": "2^25 = 3.355e+07"
+ },
+ "C_legendre_x1000000": {
+  "value": 78331,
+  "pi(x)-pi(y)+1": 78331,
+  "agree": true,
+  "contributing_combinations": 153193,
+  "all_combinations_2^pi(y)": "2^168 = 3.741e+50"
+ },
+ "D_naive_x10000": {
+  "x*prod(1-1/p)": 1203.2,
+  "survivors": 1205,
+  "ratio": 0.9985
+ },
+ "D_naive_x100000": {
+  "x*prod(1-1/p)": 9651.9,
+  "survivors": 9528,
+  "ratio": 1.013
+ },
+ "D_naive_x1000000": {
+  "x*prod(1-1/p)": 80965.3,
+  "survivors": 78331,
+  "ratio": 1.0336
+ },
+ "D_limit_2e^-gamma": 1.122919,
+ "E_share": {
+  "2": {
+   "predicted": 0.5,
+   "observed_to_1e6": 0.5
+  },
+  "3": {
+   "predicted": 0.16667,
+   "observed_to_1e6": 0.16667
+  },
+  "5": {
+   "predicted": 0.06667,
+   "observed_to_1e6": 0.06667
+  },
+  "7": {
+   "predicted": 0.0381,
+   "observed_to_1e6": 0.0381
+  },
+  "11": {
+   "predicted": 0.02078,
+   "observed_to_1e6": 0.02078
+  },
+  "13": {
+   "predicted": 0.01598,
+   "observed_to_1e6": 0.01598
+  }
+ },
+ "E_covered_by_primes_le_7": 0.7714,
+ "E_covered_by_primes_le_1000": 0.919,
+ "E_survivors_fraction_1e6": 0.0783,
+ "F_rings_count_Omega": {
+  "1": 78498,
+  "2": 210035,
+  "3": 250853,
+  "4": 198062,
+  "5": 124465,
+  "6": 68963,
+  "7": 35585
+ },
+ "F_odd_Omega": 500265,
+ "F_even_Omega": 499734,
+ "F_Liouville_sum_L(1e6)": -530,
+ "F_odd_minus_even_over_N": 0.00053,
+ "G_window_factorizations": {
+  "999962": [
+   2,
+   37,
+   13513
+  ],
+  "999963": [
+   3,
+   3,
+   137,
+   811
+  ],
+  "999964": [
+   2,
+   2,
+   7,
+   71,
+   503
+  ],
+  "999965": [
+   5,
+   43,
+   4651
+  ],
+  "999966": [
+   2,
+   3,
+   11,
+   109,
+   139
+  ],
+  "999967": [
+   31,
+   32257
+  ],
+  "999968": [
+   2,
+   2,
+   2,
+   2,
+   2,
+   31249
+  ],
+  "999969": [
+   3,
+   333323
+  ],
+  "999970": [
+   2,
+   5,
+   19,
+   19,
+   277
+  ],
+  "999971": [
+   7,
+   23,
+   6211
+  ],
+  "999972": [
+   2,
+   2,
+   3,
+   3,
+   3,
+   47,
+   197
+  ],
+  "999973": [
+   13,
+   13,
+   61,
+   97
+  ],
+  "999974": [
+   2,
+   17,
+   29411
+  ],
+  "999975": [
+   3,
+   5,
+   5,
+   67,
+   199
+  ],
+  "999976": [
+   2,
+   2,
+   2,
+   239,
+   523
+  ],
+  "999977": [
+   11,
+   90907
+  ],
+  "999978": [
+   2,
+   3,
+   7,
+   29,
+   821
+  ],
+  "999979": [
+   999979
+  ]
+ },
+ "runtime_s": 0.6
+}

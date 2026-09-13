@@ -1,0 +1,44 @@
+{
+ "radius": 10000,
+ "norm_max": 100000000,
+ "gaussian_primes": 23046512,
+ "sieve_s": 1.3,
+ "points_s": 10.9,
+ "check_K2_component_of_2+i": 96,
+ "ladder": [
+  {
+   "k": 3.162,
+   "k^2": 10,
+   "component_size": 249504,
+   "component_size_incl_1+i_associates": 249508,
+   "farthest_|z|": 1024.4,
+   "farthest_norm": 1049297,
+   "closed_inside_disk": true,
+   "fraction_of_disk_primes": 0.0108,
+   "t_s": 29.4
+  },
+  {
+   "k": 4.0,
+   "k^2": 16,
+   "component_size": 2780472,
+   "component_size_incl_1+i_associates": 2780476,
+   "farthest_|z|": 4312.6,
+   "farthest_norm": 18598609,
+   "closed_inside_disk": true,
+   "fraction_of_disk_primes": 0.1206,
+   "t_s": 47.3
+  },
+  {
+   "k": 4.243,
+   "k^2": 18,
+   "component_size": 18463928,
+   "component_size_incl_1+i_associates": 18463932,
+   "farthest_|z|": 10000.0,
+   "farthest_norm": 99999517,
+   "closed_inside_disk": false,
+   "fraction_of_disk_primes": 0.8012,
+   "t_s": 68.3
+  }
+ ],
+ "runtime_s": 68.3
+}

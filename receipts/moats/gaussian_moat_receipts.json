@@ -1,0 +1,78 @@
+{
+ "gaussian_primes_norm<=1e6": 1132640,
+ "expected_8*split+4*inert(p<=1000)+4": 1132640,
+ "split_points": 1132016,
+ "inert_points": 620,
+ "ramified_points(1+i and associates)": 4,
+ "density_center_101x101": 0.1816,
+ "density_rim_shell_0.9-1.0": 0.0843,
+ "(4/pi)/log_N_at_rim": 0.084,
+ "odd_k^2_useless_check": true,
+ "moat_ladder": [
+  {
+   "k": 1.414,
+   "k^2": 2,
+   "component_size": 100,
+   "farthest_|z|": 11.7,
+   "farthest_norm": 137,
+   "closed_inside_disk": true,
+   "components_total": 790177
+  },
+  {
+   "k": 2.0,
+   "k^2": 4,
+   "component_size": 720,
+   "farthest_|z|": 45.3,
+   "farthest_norm": 2053,
+   "closed_inside_disk": true,
+   "components_total": 523073
+  },
+  {
+   "k": 2.828,
+   "k^2": 8,
+   "component_size": 2996,
+   "farthest_|z|": 93.5,
+   "farthest_norm": 8737,
+   "closed_inside_disk": true,
+   "components_total": 304517
+  },
+  {
+   "k": 3.162,
+   "k^2": 10,
+   "component_size": 249508,
+   "farthest_|z|": 1024.4,
+   "farthest_norm": 1049297,
+   "closed_inside_disk": true,
+   "components_total": 46189
+  },
+  {
+   "k": 4.0,
+   "k^2": 16,
+   "component_size": 1065372,
+   "farthest_|z|": 2000.0,
+   "farthest_norm": 3999901,
+   "closed_inside_disk": false,
+   "components_total": 15209
+  }
+ ],
+ "largest_k_closed_inside_radius_1000": 3.162,
+ "first_k_reaching_boundary(undetermined_here)": 4.0,
+ "largest_empty_circle": {
+  "radius": 6.403,
+  "center": [
+   -1775,
+   -279
+  ],
+  "center_norm": 3228466,
+  "lattice_points_inside": 129,
+  "primes_inside": 0
+ },
+ "poisson_scale_radius_estimate": 7.86,
+ "compare_1D_record_gap_below_X": {
+  "X": 4000000,
+  "gap": 148,
+  "after_prime": 2010733,
+  "composites_inside": 147
+ },
+ "runtime_s": 6.5
+}

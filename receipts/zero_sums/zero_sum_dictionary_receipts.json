@@ -1,0 +1,100 @@
+{
+ "rim_angle_first_zero_deg": 4.05186,
+ "rim_angle_1/gamma_first": 0.070748,
+ "theta_first": 0.070718,
+ "rim_span_deg_100k": 4.052,
+ "lambda_1_closed_form_1+gamma/2-log(4pi)/2": 0.0230957,
+ "Li_from_rim_angles": {
+  "1": {
+   "partial_100k": 0.0230736,
+   "tail_n^2*sum1/g^2": 2.21e-05,
+   "lambda_n_est": 0.023096,
+   "known": 0.023095708966121,
+   "diff": "1.1e-10"
+  },
+  "2": {
+   "partial_100k": 0.0922575,
+   "tail_n^2*sum1/g^2": 8.83e-05,
+   "lambda_n_est": 0.092346,
+   "known": 0.0923457352280475,
+   "diff": "4.2e-10"
+  },
+  "3": {
+   "partial_100k": 0.2074403,
+   "tail_n^2*sum1/g^2": 0.0001986,
+   "lambda_n_est": 0.207639,
+   "known": 0.2076389205,
+   "diff": "1.0e-09"
+  },
+  "4": {
+   "partial_100k": 0.3684375,
+   "tail_n^2*sum1/g^2": 0.000353,
+   "lambda_n_est": 0.36879,
+   "known": 0.3687904795,
+   "diff": "1.7e-09"
+  },
+  "5": {
+   "partial_100k": 0.5749911,
+   "tail_n^2*sum1/g^2": 0.0005516,
+   "lambda_n_est": 0.575543,
+   "known": 0.5755427145,
+   "diff": "2.6e-09"
+  },
+  "6": {
+   "partial_100k": 0.8267717,
+   "tail_n^2*sum1/g^2": 0.0007943,
+   "lambda_n_est": 0.827566,
+   "known": 0.8275660809,
+   "diff": "-6.5e-08"
+  }
+ },
+ "race_mod4": {
+  "1e3": {
+   "inert_3mod4": 87,
+   "split_1mod4": 80,
+   "inert_minus_split": 7
+  },
+  "1e4": {
+   "inert_3mod4": 619,
+   "split_1mod4": 609,
+   "inert_minus_split": 10
+  },
+  "1e5": {
+   "inert_3mod4": 4808,
+   "split_1mod4": 4783,
+   "inert_minus_split": 25
+  },
+  "1e6": {
+   "inert_3mod4": 39322,
+   "split_1mod4": 39175,
+   "inert_minus_split": 147
+  }
+ },
+ "race_leading_period_in_log_x": 1.0436,
+ "race_leading_period_x_ratio": 2.839,
+ "race_sqrt_term_from_inert_squares_at_1e6": 72.4,
+ "legendre_fractional_error": {
+  "1e4": {
+   "sum_mu(d){x/d}": -55.0,
+   "x*prod-Phi": -1.8,
+   "ratio_to_x/log_x": -0.0507
+  },
+  "1e5": {
+   "sum_mu(d){x/d}": -407.7,
+   "x*prod-Phi": 123.9,
+   "ratio_to_x/log_x": -0.0469
+  },
+  "1e6": {
+   "sum_mu(d){x/d}": -2649.5,
+   "x*prod-Phi": 2634.3,
+   "ratio_to_x/log_x": -0.0366
+  }
+ },
+ "limit_ratio_2e^-gamma-1": 0.1229,
+ "combination_sum_exponent": {
+  "zeta_M(x)_fit_1e4_1e6": 0.466,
+  "zeta_sup_Re_rho_verified_zeros": 0.5,
+  "DH_B(x)_fit_1e4_1e6": 0.794,
+  "DH_offline_zero_Re": 0.808517
+ }
+}

@@ -1,0 +1,88 @@
+{
+ "A_M_at_powers": {
+  "1e1": -1,
+  "1e2": 1,
+  "1e3": 2,
+  "1e4": -23,
+  "1e5": -48,
+  "1e6": 212
+ },
+ "A_L_at_powers": {
+  "1e1": 0,
+  "1e2": -2,
+  "1e3": -14,
+  "1e4": -94,
+  "1e5": -288,
+  "1e6": -530
+ },
+ "A_max_|M|/sqrt_x_below_1e6": 0.8944,
+ "A_argmax": 5,
+ "A_max_|L|/sqrt_x_below_1e6": 1.3302,
+ "A_L_first_positive_x": null,
+ "B_inverse_of_zeta_equals_mu": true,
+ "B_DH_kappa": 0.284079044,
+ "B_DH_b_first_12": [
+  1.0,
+  -0.284079,
+  0.284079,
+  1.080701,
+  0.0,
+  -1.161402,
+  -0.284079,
+  -0.307004,
+  1.080701,
+  0.0,
+  -1.0,
+  0.921013
+ ],
+ "B_DH_|b(n)|_max_below_1e6": 1421.206,
+ "B_DH_B(x)/sqrt_x_at_powers": {
+  "1e1": 0.446,
+  "1e2": -0.234,
+  "1e3": 0.073,
+  "1e4": -0.053,
+  "1e5": 0.476,
+  "1e6": -0.108
+ },
+ "B_zeta_M(x)/sqrt_x_at_powers": {
+  "1e1": -0.316,
+  "1e2": 0.1,
+  "1e3": 0.063,
+  "1e4": -0.23,
+  "1e5": -0.152,
+  "1e6": 0.212
+ },
+ "B_DH_running_max_|B|": {
+  "1e3": 19.6,
+  "1e4": 76.32,
+  "1e5": 587.12,
+  "1e6": 2954.16
+ },
+ "B_DH_growth_exponent_fit_1e4_1e6": 0.794,
+ "B_mu_running_max_|M|": {
+  "1e3": 12,
+  "1e4": 43,
+  "1e5": 132,
+  "1e6": 368
+ },
+ "C_prod_p<=1000_(1-p^-2)": 0.6080043073,
+ "C_sum_d<=1e6_mu(d)/d^2": 0.6080043075,
+ "C_diff": "-1.84e-10",
+ "C_tail_bound_sum_d>1e6_1/d^2": "1.0e-06",
+ "C_6/pi^2": 0.6079271019,
+ "D_theta(1000)": 956.245,
+ "D_log10_P(1000)": 415.3,
+ "D_phi/P": 0.080965,
+ "D_window_fraction_1e6_of_period": "1e-409",
+ "D_mertens_check_y10_prod*e^gamma*log_y": 0.93739,
+ "D_mertens_check_y100_prod*e^gamma*log_y": 0.98686,
+ "D_mertens_check_y1000_prod*e^gamma*log_y": 0.99613,
+ "E_zeros_used": 100000,
+ "E_gamma_max": 74920.827,
+ "E_sum_1/|rho|^2_first_zeros": 0.0461473,
+ "E_tail_estimate": "4.41e-05",
+ "E_sum_plus_tail": 0.0461914,
+ "E_2*lambda_1": 0.0461914,
+ "E_lambda_1_sum_Re(1/rho)": 0.0230736,
+ "runtime_s": 4.8
+}
